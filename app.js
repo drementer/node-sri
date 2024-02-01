@@ -9,9 +9,7 @@ const files = readdirSync(srcPath, { recursive: true });
 const htmlFiles = files.filter((file) => file.endsWith('.html'));
 
 const getFileData = async (file, isAsset) => {
-  if (isAsset) {
-    return await fetch(file).then((res) => res.text());
-  }
+  if (isAsset) return await fetch(file).then((res) => res.text());
 
   return readFileSync(join(srcPath, file), 'utf8');
 };
